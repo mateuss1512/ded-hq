@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D&D HQ</title>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!-- <script src="scriptL.js"></script> -->
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap");
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="login-form">
+        <h1>Bem-vindo</h1>
+        <p>Faça seu login ou se registre!</p>
+        <input
+          type="text"
+          id="username"
+          placeholder="Nome de usuário"
+          
+        />
+        <input
+          type="email"
+          id="email"
+          placeholder="Informe seu e-mail"
+          
+        />
+        <input type="password" id="password" placeholder="Senha"  />
+        <button onclick="login()">Entrar</button>
+        <p>
+          Não possui uma conta?
+          <a href="registro.html">Faça seu registro aqui!</a>
+        </p>
+      </form>
+      <button onclick="loginWithGoogle()">Entrar com o Google</button>
+      <p id="message"></p>
+    </div>
+    <script>
+      // Configuração do Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyACCL9rEfx476t-FMAcNvyrI6UUv3VpiSY",
+        authDomain: "ded-hq-7288b.firebaseapp.com",
+        databaseURL: "https://ded-hq-7288b-default-rtdb.firebaseio.com",
+        projectId: "ded-hq-7288b",
+        storageBucket: "ded-hq-7288b.appspot.com",
+        messagingSenderId: "949359359975",
+        appId: "1:949359359975:web:d8ecf544075c739a42ef42",
+        measurementId: "G-9F8MKPXPV7",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      var auth = firebase.auth();
+
+      const provider = new firebase.auth.GoogleAuthProvider();
+
+      // Função que será chamada quando o botão de login com Google for clicado
+      function loginWithGoogle() {
+        // Abre o pop-up de autenticação do Google
+        firebase.auth().signInWithPopup(provider)
+          .then((result) => {
+            // O usuário foi autenticado com sucesso
+            const user = result.user;
+            console.log("Usuário autenticado:", user);
+            database.ref("users/" + user.uid).set({
+              email: user.email,
+              displayName: user.displayName,
+            });
+            localStorage.setItem("chave", "" + user.uid);
+
+            // Redireciona para a página index.html
+            redirecionarParaIndex();
+          })
+          .catch((error) => {
+            // Ocorreu um erro na autenticação
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(
+              "Erro ao autenticar o usuário:",
+              errorCode,
+              errorMessage
+            );
+          });
+      }
+
+      function redirecionarParaIndex() {
+        window.location.href = "index.html";
+      }
+
+      function redirecionarParaCadastro() {
+        window.location.href = "registro.html";
+      }
+    </script>
+  </body>
+</html>

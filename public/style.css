@@ -1,0 +1,56 @@
+body {
+    background-image: url(https://i.pinimg.com/originals/ea/ac/9e/eaac9ee5d4c53c0ecc0c114a23db25c9.png);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    font-size: 1rem;
+  }
+
+  p {
+    color: #F5F5DC;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  header {
+    color: #8b4513;
+    padding: 20px;
+    font-family: 'Uncial Antiqua', cursive;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    border-right:solid 1px #fff;
+  }
+  
+  nav ul li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  section {
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Uncial Antiqua', cursive;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
