@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(https://images.freeimages.com/images/large-previews/374/wood-material-background-wallpaper-texture-concept-1636201.jpg);
+    background-size: cover;
+    font-family: 'Uncial Antiqua', cursive;
+  }
+
+  .navbar {
+    background-color: #8b4513;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar li {
+    display: inline;
+    margin: 0 10px;
+    padding: 0;
+  }
+
+  .navbar a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 2.5rem;
+  }
+
+  .navbar a:hover {
+    text-decoration: white underline;
+  }
+
+  .navbar a.active {
+    color: white;
+  }

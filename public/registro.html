@@ -4,7 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro - Era Medieval</title>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="script.js"></script>
+  <title>Registro - D&D HQ</title>
   <link rel="stylesheet" href="styler.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
@@ -13,12 +19,12 @@
 
 <body>
   <div class="container">
-    <form class="register-form">
-      <h1>Registro - Era Medieval</h1>
-      <input type="text" placeholder="Nome de usuário" required>
-      <input type="password" placeholder="Senha" required>
-      <input type="password" placeholder="Confirmar senha" required>
-      <button type="submit">Registrar</button>
+    <form class="registration-form">
+      <h1>Registro - D&D HQ</h1>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Senha" required>
+      <button type="button" onclick="registrarUsuario()">Registrar</button>
+      <p id="message"></p>
       <p>Já possui uma conta? <a href="login.html">Faça login!</a></p>
     </form>
   </div>

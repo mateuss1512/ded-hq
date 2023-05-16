@@ -15,9 +15,6 @@ body {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-form {
     display: flex;
     flex-direction: column;
   }
@@ -57,7 +54,7 @@ body {
     border-radius: 3px;
     cursor: pointer;
   }
-  
+
   button:hover {
     background-color: #a0522d;
   }
