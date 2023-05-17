@@ -14,8 +14,6 @@ const firebaseConfig = {
       var db = firebase.firestore();
       var auth = firebase.auth();
 
-     
-// Registrar usuário
 function registrarUsuario() {
   var email = document.getElementById('email').value;
   var senha = document.getElementById('password').value;
