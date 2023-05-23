@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <title>Registro - D&D HQ</title>
+  <link rel="stylesheet" href="styleUserE.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+  </style>
+</head>
+
+<body>
+  <div class="container" id="container">
+    <form class="registration-form" id="registration-form">
+      <h1 id="nickname"></h1>
+      <p>Informe os seus dados abaixo</p>
+      <input type="text" id="usuario" placeholder="Nome" required>
+      <input type="text" id="nick" placeholder="Nick in-game" required>
+      <input type="number" id="idade" placeholder="Idade" required>
+      <input type="text" id="classe" placeholder="Classe" required>
+      <input type="text" id="raca" placeholder="Raça in-game" required>
+      <label for="xp">Nível de conhecimento: </label>
+      <select id="xp" required>
+        <option value=""></option>
+        <option value="Novato">Novato</option>
+        <option value="Intermediário">Intermediário</option>
+        <option value="Experiente">Experiente</option>
+    </select>
+      <button type="button" onclick="register()">Salvar dados</button>
+      <p id="msg"></p>
+      <button type="button" onclick="continuar()">Continuar</button>
+      <p id="message"></p>
+    </form>
+  </div>
+  <script src="guard.js"></script>
+  <script src="scriptUserG.js"></script>
+</body>
+
+</html>

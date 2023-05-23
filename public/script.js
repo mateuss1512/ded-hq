@@ -17,19 +17,23 @@ const firebaseConfig = {
 function registrarUsuario() {
   var email = document.getElementById('email').value;
   var senha = document.getElementById('password').value;
+  var usuario = document.getElementById('username').value;
   var msg = document.getElementById('message');
   firebase.auth().createUserWithEmailAndPassword(email, senha)
     .then((userCredential) => {
       const user = userCredential.user;
-      db.collection('emails').doc(user.uid).set({
-        email: user.email
+      const userId = user.uid;
+      db.collection('users').doc(user.uid).set({
+        email: user.email,
+        usuario: usuario
       })
       .then(() => {
         msg.style.color = "green";
         msg.textContent = ("Usuário registrado com sucesso!");
         document.getElementById('password').value = '';
         document.getElementById('email').value = '';
-        redirecionar();
+        document.getElementById('username').value = '';
+        window.location.href = "userwithE.html?userId=" + userId;
       })
     })
     .catch((error) => {
@@ -40,8 +44,4 @@ function registrarUsuario() {
     });
     
 }
-
- function redirecionar() {
-        window.location.href = "login.html";
-      }
 

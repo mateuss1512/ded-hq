@@ -39,3 +39,22 @@ body {
   .navbar a.active {
     color: white;
   }
+
+  button {
+    background-color: #8b4513;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline;
+  }
+  
+  button:hover {
+    background-color: #a0522d;
+  }
+  
+  button:active {
+    background-color: #61380b;
+  }

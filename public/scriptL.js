@@ -25,7 +25,7 @@ function loginWithGoogle() {
     .signInWithPopup(provider)
     .then((result) => {
       const user = result.user;
-      db.collection("emails")
+      db.collection("users")
         .doc(user.uid)
         .set({
           email: user.email,
@@ -33,7 +33,7 @@ function loginWithGoogle() {
         .then(() => {
           msg.style.color = "green";
           msg.textContent = "Usuário autenticado!";
-          redirecionarParaIndex();
+          window.location.href= "userwithG.html";
         });
     })
     .catch((error) => {
@@ -43,10 +43,6 @@ function loginWithGoogle() {
       msg.textContent =
         ("Erro ao autenticar o usuário:", errorCode, errorMessage);
     });
-}
-
-function redirecionarParaIndex() {
-  window.location.href = "principal.html";
 }
 
 const loginForm = document.getElementById("login-form");
@@ -63,6 +59,7 @@ function validar() {
     .signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       const user = userCredential.user;
+      const userId = userCredential.user.uid;
       messageElement.textContent = `Usuário autenticado com sucesso! UID: ${user.uid}`;
       messageElement.style.color = "green";
       window.location.href = "principal.html";

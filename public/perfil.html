@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil de Usuário - D&D HQ</title>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <link rel="stylesheet" href="stylePerfil.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap");
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <img class="profile-image" src="https://static.wikia.nocookie.net/3c9929a3-0314-4f3b-b3a6-e195d264bc05" alt="Imagem de Perfil">
+    <h1 class="profile-title" id="nome"></h1>
+    <div class="profile-info">
+      <p id="nickname"><strong>Nickname: </strong></p>
+      <p id="classe"><strong>Classe: </strong></p>
+      <p id="idade"><strong>Idade: </strong></p>
+      <p id="raca"><strong>Raça: </strong></p>
+      <p id="exp"><strong>Experiência: </strong></p>
+    </div>
+    <a href="principal.html"><p><strong>Retornar ao Início</strong></p></a>
+  </div>
+  <script src="guard.js"></script>
+  <script src="perfil.js"></script>
+</body>
+</html>
