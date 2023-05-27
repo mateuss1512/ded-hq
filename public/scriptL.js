@@ -19,6 +19,12 @@ const provider = new firebase.auth.GoogleAuthProvider();
 
 var msg = document.getElementById("message");
 
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    window.location.href = "principal.html";
+  }
+});
+
 function loginWithGoogle() {
   firebase
     .auth()
@@ -70,3 +76,4 @@ function validar() {
       messageElement.style.color = "red";
     });
 }
+

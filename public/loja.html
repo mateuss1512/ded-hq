@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loja D&D HQ</title>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="icon" href="https://img.icons8.com/color/12x/dungeons-and-dragons.png">
+    <link rel="stylesheet" href="styleLoja.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap");
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <ul>
+        <li><a href="principal.html">Início</a></li>
+        <li><a class="active" href="loja.html">Loja</a></li>
+        <li><a href="tutoriais.html">Tutoriais</a></li>
+        <li><a href="#">Fórum</a></li>
+      </ul>
+    </div>
+    <header>
+      <h1>Loja D&D HQ</h1>
+    </header>
+    <h2 id="usuario" style="color: white"></h2>
+    <section id="products">
+      <h2 style="color: white">Produtos</h2>
+      <div class="product">
+        <div class="product-info">
+          <img
+            src="https://m.media-amazon.com/images/I/714C43HG+7L._AC_SX425_.jpg"
+            alt="Dados"
+          />
+          <div class="text">
+            <h3>Dados</h3>
+            <p>
+              Preço: $19.99<span class="description">
+                -- Dados de RPG em formato personalizado. Com variações do D4 ao
+                D100!</span
+              >
+            </p>
+            <button onclick="addToCart('Dados')">Adicionar ao carrinho</button>
+            <span id="stock-dados" class="stock"></span>
+          </div>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-info">
+          <img
+            src="https://rpgmaisbarato.com/assets/upload/produtos/032020/96117_ded-5-edicao-monster-manual-livro-dos-monstros-portugues_5e627c2189821.jpg"
+            alt="Livro dos Monstros"
+          />
+          <div class="text">
+            <h3>Livro dos Monstros</h3>
+            <p>Preço: $219.99 <span class="description">O Manual dos Monstros é o principal livro-fonte do bestiário para monstros no RPG de fantasia Dungeons & Dragons, publicado pela primeira vez em 1977 pela TSR.</span></p>
+            <button onclick="addToCart('Livro Monstros')">
+              Adicionar ao carrinho
+            </button>
+            <span id="stock-livro-monstros" class="stock"></span>
+          </div>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-info">
+          <img
+            src="https://m.media-amazon.com/images/I/51Loy+T1p8L._AC_.jpg"
+            alt="Livro do Jogador"
+          />
+          <div class="text">
+            <h3>Livro do Jogador</h3>
+            <p>
+              Preço: $219.99<span class="description">
+                -- O Livro do Jogador é o nome dado a um dos principais livros de regras em todas as edições do RPG de fantasia Dungeons & Dragons. Ele não contém o conjunto completo de regras do jogo e inclui apenas regras para uso pelos jogadores do jogo.</span
+              >
+            </p>
+            <button onclick="addToCart('Livro Jogador')">Adicionar ao carrinho</button>
+            <span id="stock-livro-jogador" class="stock"></span>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="product">
+    <div class="product-info">
+      <img
+        src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQNr1Rt8VBZ-qx8Yl1SXWhpbT-BAKsiIegywskBkQbHzWJeRvufeaYGvyoVczWHPiUWSSBxmvL8wmamBZXl4oMNdf-0X-J8mlb3qH30FQ01jvqHL6UapayF&usqp=CAE"
+        alt="Escudo do Mestre"
+      />
+      <div class="text">
+        <h3>Escudo do Mestre</h3>
+        <p>
+          Preço: $79.99<span class="description">
+            -- Este escudo do mestre ou DM Screen é utilizado no sistema Dungeons & Dragons e outros sistemas de RPG para ocultar jogadas que o mestre faça, posicionar as miniaturas q serão usadas, pendurar folhas com informações da campanha entre outros. este escudo de mestre foi feito em MDF e contruido de forma a ser dobrado e facilmente armazenado, muito compacto e de facil utilização. ele é composto de 4 partes cada uma medindo aproximadamente 22cm x 18 cm que é seu tamanho total quando dobrado, e quando extendido, de ponta a ponta tem aproximadamente 90cm.</span
+          >
+        </p>
+        <button onclick="addToCart('Escudo do Mestre')">Adicionar ao carrinho</button>
+        <span id="stock-escudo-mestre" class="stock"></span>
+      </div>
+    </div>
+  </div>
+</div>
+    </section>
+
+    <section id="cart">
+      <h2>Carrinho de Compras</h2>
+      <ul id="cart-items"></ul>
+      <form id="payment-form">
+        <h3>Dados de Pagamento</h3>
+        <label for="card-name">Nome completo (Proprietário do Cartão):</label>
+        <input
+          type="text"
+          id="card-name"
+          placeholder="Digite o nome completo"
+          required
+        />
+        <label for="card-cpf">Número do CPF:</label>
+        <input
+          type="text"
+          id="card-cpf"
+          pattern="[0-9]{11}"
+          maxlength="11"
+          placeholder="Digite o CPF"
+          required
+        />
+        <label for="card-number">Número do Cartão:</label>
+        <input
+          type="text"
+          id="card-number"
+          pattern="[0-9]{16}"
+          maxlength="16"
+          placeholder="Digite o número do cartão"
+          required
+        />
+        <label for="card-expiry">Validade:</label>
+        <input
+          type="month"
+          id="card-expiry"
+          required
+        />
+        <label for="card-cvv">CVV:</label>
+        <input
+          type="text"
+          id="card-cvv"
+          pattern="[0-9]{3,4}"
+          maxlength="4"
+          placeholder="Digite o CVV"
+          required
+        />
+        <button type="button" onclick="checkout()">Finalizar Compra</button>
+      </form>
+    </section>
+    <script src="guard.js"></script>
+    <script src="scriptLoja.js"></script>
+  </body>
+</html>
