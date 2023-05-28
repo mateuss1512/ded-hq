@@ -144,17 +144,6 @@ function checkout() {
     });
   }
   
-  function updateStockCount() {
-    db.collection('produtos').get().then(function(querySnapshot) {
-      var stockCount = 0;
-      querySnapshot.forEach(function(doc) {
-        stockCount += doc.data().quantidade;
-      });
-      var stockCountElement = document.getElementById('stock-count');
-      stockCountElement.textContent = 'Quantidade em estoque: ' + stockCount;
-    });
-  }
-
   function displayStock() {
     var products1 = document.getElementById('stock-dados');
     var products2 = document.getElementById('stock-livro-monstros');

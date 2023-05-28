@@ -44,9 +44,3 @@ function registrarUsuario() {
     });
     
 }
-
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    window.location.href = "principal.html";
-  }
-});
