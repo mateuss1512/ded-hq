@@ -8,6 +8,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="stylePerfil.css" />
   <link rel="icon" href="https://img.icons8.com/color/12x/dungeons-and-dragons.png">
   <style>
@@ -16,7 +17,12 @@
 </head>
 <body>
   <div class="profile-container">
-    <img class="profile-image" src="https://static.wikia.nocookie.net/3c9929a3-0314-4f3b-b3a6-e195d264bc05" alt="Imagem de Perfil">
+    <img class="profile-image" id="profile-img" src="https://static.wikia.nocookie.net/3c9929a3-0314-4f3b-b3a6-e195d264bc05" alt="Imagem de Perfil">
+    <label for="profile-intput" id="label">Digite um texto para gerar sua foto de perfil</label>
+    <input type="text" id="profile-input">
+    <button id="btn1" onclick="gerarImagem(document.getElementById('profile-input').value)">Gerar</button>
+    <button id="btn2" onclick="salvar()">Salvar</button>
+    <button id="btn3" onclick="atualizarImg()">Mudar Imagem</button>
     <h1 class="profile-title" id="nome"></h1>
     <div class="profile-info">
       <p id="nickname"><strong>Nickname: </strong></p>
