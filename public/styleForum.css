@@ -78,4 +78,76 @@ body {
     margin-left: 10px;
   }
 
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    margin-top: 20px;
+  }
+
+  input[type="text"] {
+    width: 300px;
+    padding: 5px;
+    margin-right: 10px;
+  }
+
+  button {
+    padding: 5px 10px;
+    background-color: #8b4513;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #814d28;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  form {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .topic {
+    color: white; 
+  }
+
+  .comment {
+    background-color: white;
+    padding: 5px;
+  }
+
+  .comment-form {
+    display: none; 
+    margin-top: 10px;
+  }
+
+  li.topic-item {
+    margin-bottom: 10px;
+  }
+
+  .topic-item {
+    margin-bottom: 10px; 
+  }
+  
+  .button-container {
+    margin-top: 10px; 
+  }
+
+  
+
+
+
   

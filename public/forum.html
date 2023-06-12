@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Chat em Tempo Real</title>
+    <title>Fórum D&D HQ</title>
     <link rel="stylesheet" type="text/css" href="styleForum.css" />
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
+    <link rel="icon" href="https://img.icons8.com/color/12x/dungeons-and-dragons.png">
     <script src="guard.js"></script>
   </head>
   <body>
     <div class="navbar">
       <ul>
-        <li><a href="principal.html" class="active">Início</a></li>
+        <li><a href="principal.html">Início</a></li>
         <li><a href="loja.html">Loja</a></li>
         <li><a href="tutoriais.html">Tutoriais</a></li>
-        <li><a href="forum.html">Fórum</a></li>
+        <li><a class="active" href="forum.html">Fórum</a></li>
         <li><a href="perfil.html">Perfil</a></li>
         <li><button style="background-color: #8b4513;
           color: black;
@@ -31,6 +32,21 @@
   </div>
   <p style="color: white" id="usuario"></p>
   <hr>
+  <h1 style="color: white" >Fórum D&D HQ</h1>
+  
+  <div>
+    <h2 style="color: white">Adicionar Tópico</h2>
+    <input type="text" id="topicInput" placeholder="Digite o tópico">
+    <input type="text" id="topicTextInput" placeholder="Digite o texto do tópico">
+    <button onclick="addTopic()">Adicionar</button>
+  </div>
+  
+  
+  <div>
+    <h2 style="color: white" >Tópicos</h2>
+    <ul id="topicList"></ul>
+  </div>
+
     <div id="chat-container">
       <div id="chat-header">
         <h5>Bem-vindo ao Chat</h5>
